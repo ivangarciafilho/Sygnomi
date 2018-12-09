@@ -257,6 +257,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7350582970430331827, guid: 6eb240571032aa04ca52aec05cdd3394,
+        type: 3}
+      propertyPath: m_Name
+      value: XR_Rig
+      objectReference: {fileID: 0}
     - target: {fileID: 7350582970430331824, guid: 6eb240571032aa04ca52aec05cdd3394,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,11 +316,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7350582970430331827, guid: 6eb240571032aa04ca52aec05cdd3394,
-        type: 3}
-      propertyPath: m_Name
-      value: XR_Rig
       objectReference: {fileID: 0}
     - target: {fileID: 7350582970705360758, guid: 6eb240571032aa04ca52aec05cdd3394,
         type: 3}
@@ -5873,6 +5873,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6631539674637674247, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
+        type: 3}
+      propertyPath: m_Name
+      value: MirrorInteraction
+      objectReference: {fileID: 0}
     - target: {fileID: 7473930409784973746, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5928,16 +5933,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6631539674637674247, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
-        type: 3}
-      propertyPath: m_Name
-      value: MirrorInteraction
-      objectReference: {fileID: 0}
     - target: {fileID: 6536424478831939083, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6536424478831939083, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
+        type: 3}
+      propertyPath: userHeadTarget
+      value: 
+      objectReference: {fileID: 1745919365}
+    - target: {fileID: 6536424478831939083, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
+        type: 3}
+      propertyPath: xrRig
+      value: 
+      objectReference: {fileID: 38333694}
     - target: {fileID: 8814579674656018271, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
         type: 3}
       propertyPath: solver.leftArm.target
@@ -5953,16 +5963,6 @@ PrefabInstance:
       propertyPath: m_SpotAngle
       value: 70.8
       objectReference: {fileID: 0}
-    - target: {fileID: 6536424478831939083, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
-        type: 3}
-      propertyPath: userHeadTarget
-      value: 
-      objectReference: {fileID: 1745919365}
-    - target: {fileID: 6536424478831939083, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
-        type: 3}
-      propertyPath: xrRig
-      value: 
-      objectReference: {fileID: 38333694}
     - target: {fileID: 6537200707090039212, guid: 8add4cdf142d8ca41863c448e4d0ac1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6809,6 +6809,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
+      propertyPath: m_Name
+      value: SM_SuperHouse_10192018
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6852,10 +6856,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
-      propertyPath: m_Name
-      value: SM_SuperHouse_10192018
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
       propertyPath: m_Materials.Array.data[17]
@@ -7129,6 +7129,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[77]
       value: 
       objectReference: {fileID: 2100000, guid: c7f13012168ee90409d840f26a252b02, type: 2}
+    - target: {fileID: 2300000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
+      propertyPath: m_Materials.Array.data[59]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c3f7cb76fba088479e480488368492b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
 --- !u!1 &1255605847
@@ -7345,6 +7349,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6142257972253684816, guid: 5777cbd2ce37be741b836c8dd8de5c94,
+        type: 3}
+      propertyPath: m_Name
+      value: Clips
+      objectReference: {fileID: 0}
     - target: {fileID: 5737464863543334963, guid: 5777cbd2ce37be741b836c8dd8de5c94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7399,11 +7408,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142257972253684816, guid: 5777cbd2ce37be741b836c8dd8de5c94,
-        type: 3}
-      propertyPath: m_Name
-      value: Clips
       objectReference: {fileID: 0}
     - target: {fileID: 2105421606, guid: 5777cbd2ce37be741b836c8dd8de5c94, type: 3}
       propertyPath: m_TargetCameraAlpha
@@ -8810,6 +8814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_Name
+      value: SM_bed_couch
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.678
@@ -8853,10 +8861,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
-      propertyPath: m_Name
-      value: SM_bed_couch
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -11075,6 +11079,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3448289561353400894, guid: 17d9dae9f2408a94bab18d77bd597048,
+        type: 3}
+      propertyPath: m_Name
+      value: CameraPositions
+      objectReference: {fileID: 0}
     - target: {fileID: 9139900324483917133, guid: 17d9dae9f2408a94bab18d77bd597048,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11129,11 +11138,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3448289561353400894, guid: 17d9dae9f2408a94bab18d77bd597048,
-        type: 3}
-      propertyPath: m_Name
-      value: CameraPositions
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d9dae9f2408a94bab18d77bd597048, type: 3}
