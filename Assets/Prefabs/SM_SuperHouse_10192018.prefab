@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 296384629}
   - component: {fileID: 296384628}
   - component: {fileID: 296384627}
-  m_Layer: 0
+  - component: {fileID: 2181701148625146004}
+  m_Layer: 9
   m_Name: SM_SuperHouse_10192018_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -161,6 +162,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2181701148625146004
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296384626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300004, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
 --- !u!1 &432414640
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +186,8 @@ GameObject:
   m_Component:
   - component: {fileID: 432414642}
   - component: {fileID: 432414641}
-  m_Layer: 0
+  - component: {fileID: 6630441747043232270}
+  m_Layer: 9
   m_Name: SM_SuperHouse_10192018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432414640}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -197,9 +213,10 @@ Transform:
   - {fileID: 1851943923}
   - {fileID: 1352400919}
   - {fileID: 449410630}
+  - {fileID: 353347495}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!205 &432414641
 LODGroup:
   m_ObjectHideFlags: 0
@@ -231,6 +248,20 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1210740448}
   m_Enabled: 1
+--- !u!64 &6630441747043232270
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432414640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 0}
 --- !u!1 &449410628
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449410630}
   - component: {fileID: 449410629}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReflectionProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920518861}
   - component: {fileID: 920518860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReflectionProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +401,8 @@ GameObject:
   - component: {fileID: 1203278961}
   - component: {fileID: 1203278960}
   - component: {fileID: 1203278959}
-  m_Layer: 0
+  - component: {fileID: 9076570462528673517}
+  m_Layer: 9
   m_Name: SM_SuperHouse_10192018_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +543,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -520,6 +552,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9076570462528673517
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203278958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300002, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
 --- !u!1 &1210740447
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +577,8 @@ GameObject:
   - component: {fileID: 1210740450}
   - component: {fileID: 1210740449}
   - component: {fileID: 1210740448}
-  m_Layer: 0
+  - component: {fileID: 9169559279513486574}
+  m_Layer: 9
   m_Name: SM_SuperHouse_10192018_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +719,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -681,6 +728,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9169559279513486574
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210740447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300006, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
 --- !u!1 &1352400917
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352400919}
   - component: {fileID: 1352400918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReflectionProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1851943923}
   - component: {fileID: 1851943922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ReflectionProbes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +881,8 @@ GameObject:
   - component: {fileID: 2072994809}
   - component: {fileID: 2072994808}
   - component: {fileID: 2072994807}
-  m_Layer: 0
+  - component: {fileID: 4820315560261038636}
+  m_Layer: 9
   m_Name: SM_SuperHouse_10192018_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +1019,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -966,3 +1028,104 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4820315560261038636
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072994806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300000, guid: 4d8ac9d36bf0ca546ab9ad459eca74a5, type: 3}
+--- !u!1001 &352959783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 432414642}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_Name
+      value: SM_bed_couch
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.678
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21999931
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.240001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b612c724681cb6848a34f19c212ac481, type: 2}
+    - target: {fileID: 2300000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a0bf8a9940b4584c949f2b4170d631c, type: 2}
+    - target: {fileID: 2300000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 124d22c4b6aa14ca4a8dee552baa619f, type: 2}
+    - target: {fileID: 2300000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86, type: 3}
+--- !u!4 &353347495 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 9d0e64ea1fde47c4d8e7b7f933d4bd86,
+    type: 3}
+  m_PrefabInstance: {fileID: 352959783}
+  m_PrefabAsset: {fileID: 0}
