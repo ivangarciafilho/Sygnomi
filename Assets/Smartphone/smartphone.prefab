@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 32011824}
   - component: {fileID: 4763499962512850663}
   m_Layer: 0
-  m_Name: Light
+  m_Name: ConeLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.25, g: 0.25, b: 0.25, a: 2048.5}
+  m_Color: {r: 0.112500004, g: 0.15, b: 0.15, a: 2048.5}
   m_Intensity: 1
   m_Range: 3
   m_SpotAngle: 160
@@ -85,8 +85,8 @@ MonoBehaviour:
   lightLength: 0
   lightRadius: 0.05
   specularIntensity: 1
-  lightColor: {r: 1, g: 1, b: 1, a: 0}
-  lightIntensity: 0.25
+  lightColor: {r: 0.75, g: 1, b: 1, a: 0}
+  lightIntensity: 0.15
 --- !u!1 &217680079
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint: {fileID: 2060710054}
   trackingSpeed: 0.666
-  TriggeringDistance: 0.2
+  TriggeringDistance: 0.1
 --- !u!114 &217680086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394389384}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 97be55e700bd58942a5172f0b634c835, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b1bdfd98b95ff6b45b45111764cff633, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060710053}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.245226, y: -0.005911559, z: 0.007000014}
+  m_LocalPosition: {x: -0.25, y: 0.25, z: 0}
   m_LocalScale: {x: 0.056070056, y: 0.10528009, z: 0.05531006}
   m_Children: []
   m_Father: {fileID: 4717887507390182}

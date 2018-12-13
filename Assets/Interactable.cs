@@ -28,21 +28,22 @@ public class Interactable : MonoBehaviour
 
         if (Hand.currentObjectBeingGrabbed == this.transform)
         {
-            if (managedVideo.isPlaying) return;
+            if (managedVideo.isPaused == false) return;
             amountOfTimeLookingTowardsTheObject += Time.fixedDeltaTime;
             if (amountOfTimeLookingTowardsTheObject < triggeringTime) return;
-            managedVideo.Play();
+            if (managedVideo.isPaused) managedVideo.Play();
         }
         else
         {
             amountOfTimeLookingTowardsTheObject = 0;
-            if (managedVideo.isPlaying) managedVideo.Pause();
+            if (managedVideo.isPaused==false) managedVideo.Pause();
             return;
         }
     }
 
     private void Setup()
     {
+        managedVideo.Play();
         managedVideo.Pause();
         amountOfFrames = (long) managedVideo.frameCount;
     }

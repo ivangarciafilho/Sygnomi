@@ -8,9 +8,10 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.root == transform.root) return;
         if (other.transform == currentObjectBeingGrabbed) return;
 
-        StopAllCoroutines();
+        //StopAllCoroutines();
         currentObjectBeingGrabbed = other.transform;
         other.transform.SetParent(transform);
         other.transform.localPosition = Vector3.zero;
