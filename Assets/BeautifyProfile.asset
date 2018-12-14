@@ -74,13 +74,13 @@ MonoBehaviour:
   bloomWeight4: 0.35
   bloomWeight5: 0.1
   bloomBlur: 1
-  bloomDepthAtten: 0.75
+  bloomDepthAtten: 0.85
   bloomLayerZBias: 0
   anamorphicFlares: 1
-  anamorphicFlaresIntensity: 1
+  anamorphicFlaresIntensity: 0.15
   anamorphicFlaresAntiflicker: 1
   anamorphicFlaresUltra: 1
-  anamorphicFlaresThreshold: 1.3
+  anamorphicFlaresThreshold: 1.5
   anamorphicFlaresSpread: 1
   anamorphicFlaresVertical: 0
   anamorphicFlaresTint: {r: 0.5, g: 0.5, b: 1, a: 0}
