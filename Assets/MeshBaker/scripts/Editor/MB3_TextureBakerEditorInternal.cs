@@ -181,6 +181,7 @@ namespace DigitalOpus.MB.Core
             }
             textureBaker.Update();
 
+            
             showInstructions = EditorGUILayout.Foldout(showInstructions, "Instructions:");
             if (showInstructions)
             {
@@ -192,10 +193,11 @@ namespace DigitalOpus.MB.Core
                                         "6. You are now ready to build combined meshs or adjust meshes to use the combined material(s).", UnityEditor.MessageType.None);
 
             }
-            //mom.LOG_LEVEL = (MB2_LogLevel) EditorGUILayout.EnumPopup("Log Level", mom.LOG_LEVEL);
+            
             EditorGUILayout.PropertyField(logLevel, logLevelContent);
-
+            
             EditorGUILayout.Separator();
+            
             EditorGUILayout.BeginVertical(editorBoxBackgroundStyle);
             EditorGUILayout.LabelField("Objects To Be Combined", EditorStyles.boldLabel);
             if (GUILayout.Button(openToolsWindowLabelContent))
@@ -203,6 +205,10 @@ namespace DigitalOpus.MB.Core
                 MB3_MeshBakerEditorWindowInterface mmWin = (MB3_MeshBakerEditorWindowInterface)EditorWindow.GetWindow(editorWindow);
                 mmWin.target = (MB3_MeshBakerRoot)momm;
             }
+
+            object[] objs = MB3_EditorMethods.DropZone("Drag & Drop Renderers Or Parents Here To Add Objects To Be Combined", 300, 50);
+            MB3_EditorMethods.AddDroppedObjects(objs, momm);
+
             EditorGUILayout.PropertyField(objsToMesh, objectsToCombineGUIContent, true);
             EditorGUILayout.Separator();
             EditorGUILayout.BeginHorizontal();
@@ -224,6 +230,8 @@ namespace DigitalOpus.MB.Core
             EditorGUILayout.PropertyField(sortOrderAxis, GUIContent.none);
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndVertical();
+            
+
             EditorGUILayout.Separator();
             EditorGUILayout.LabelField("Output", EditorStyles.boldLabel);
             if (GUILayout.Button(createPrefabAndMaterialLabelContent))
@@ -670,7 +678,7 @@ namespace DigitalOpus.MB.Core
                         // Do the texture pack
                         List<AtlasPackingResult> packingResults = new List<AtlasPackingResult>();
                         Material tempMat = new Material(sh.shader);
-                        combiner.CombineTexturesIntoAtlases(null, null, tempMat, mom.GetObjectsToCombine(), allMatsThatUserShader, null, packingResults, true);
+                        combiner.CombineTexturesIntoAtlases(null, null, tempMat, mom.GetObjectsToCombine(), allMatsThatUserShader, null, packingResults, true, true);
                         for (int i = 0; i < packingResults.Count; i++)
                         {
 
@@ -795,8 +803,5 @@ namespace DigitalOpus.MB.Core
             mom.textureBakeResults = (MB2_TextureBakeResults)AssetDatabase.LoadAssetAtPath(pth, typeof(MB2_TextureBakeResults));
             AssetDatabase.Refresh();
         }
-
     }
-
-
 }

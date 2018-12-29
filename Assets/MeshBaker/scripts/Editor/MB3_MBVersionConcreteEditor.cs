@@ -170,5 +170,34 @@ namespace DigitalOpus.MB.Core{
             }
             return false;
         }
+
+        public MB_PrefabType GetPrefabType(UnityEngine.Object obj)
+        {
+#if UNITY_2018_3_OR_NEWER
+            if (PrefabUtility.IsPartOfNonAssetPrefabInstance(obj)){
+                return MB_PrefabType.sceneInstance;
+            }
+            PrefabAssetType assetType = PrefabUtility.GetPrefabAssetType(obj);
+            if (assetType == PrefabAssetType.NotAPrefab){
+                return MB_PrefabType.sceneInstance;
+            } else if (assetType == PrefabAssetType.Model){
+                return MB_PrefabType.modelPrefab;
+            } else {
+                return MB_PrefabType.prefab;
+            }
+#else
+            PrefabType prefabType = PrefabUtility.GetPrefabType(obj);
+            if (prefabType == PrefabType.ModelPrefab)
+            {
+                return MB_PrefabType.modelPrefab;
+            } else if (prefabType == PrefabType.Prefab)
+            {
+                return MB_PrefabType.prefab;
+            } else
+            {
+                return MB_PrefabType.sceneInstance;
+            }
+#endif
+        }
     }
 }

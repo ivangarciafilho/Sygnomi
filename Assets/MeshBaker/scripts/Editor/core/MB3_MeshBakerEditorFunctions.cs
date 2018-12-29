@@ -67,8 +67,8 @@ public class MB3_MeshBakerEditorFunctions {
 			return false;
 		}
 		if (mom.meshCombiner.resultSceneObject != null &&
-						(PrefabUtility.GetPrefabType (mom.meshCombiner.resultSceneObject) == PrefabType.ModelPrefab ||
-						PrefabUtility.GetPrefabType (mom.meshCombiner.resultSceneObject) == PrefabType.Prefab)) {
+            (MBVersionEditor.GetPrefabType(mom.meshCombiner.resultSceneObject) == MB_PrefabType.modelPrefab ||
+             MBVersionEditor.GetPrefabType(mom.meshCombiner.resultSceneObject) == MB_PrefabType.prefab)) {
 			Debug.LogWarning("Result Game Object was a project asset not a scene object instance. Clearing this field.");
 			mom.meshCombiner.resultSceneObject = null;
 		}
@@ -86,8 +86,8 @@ public class MB3_MeshBakerEditorFunctions {
 
             
 			if (prefabOrSceneObject == MB2_OutputOptions.bakeIntoSceneObject){
-				PrefabType pt = PrefabUtility.GetPrefabType(mom.meshCombiner.resultSceneObject);
-				if (pt == PrefabType.Prefab || pt == PrefabType.ModelPrefab){
+				MB_PrefabType pt = MBVersionEditor.GetPrefabType(mom.meshCombiner.resultSceneObject);
+				if (pt == MB_PrefabType.prefab || pt == MB_PrefabType.modelPrefab){
 					Debug.LogError("Combined Mesh Object is a prefab asset. If output option bakeIntoSceneObject then this must be an instance in the scene.");
 					return false;
 				}

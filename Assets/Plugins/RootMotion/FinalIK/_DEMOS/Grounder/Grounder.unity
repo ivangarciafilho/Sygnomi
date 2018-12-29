@@ -1810,6 +1810,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272296524}
     m_Modifications:
+    - target: {fileID: 100014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
+      propertyPath: m_Name
+      value: Mine Bot Generic
+      objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1842,18 +1850,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b8e766ffcd8cb44fea3ff1a7189cf35a, type: 2}
-    - target: {fileID: 100014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
-      propertyPath: m_Name
-      value: Mine Bot Generic
-      objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: f2093db62046d4e2ba144bcf7d750db7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -10669,7 +10669,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000008968486, y: 0, z: -0.50155413}
+  m_ConnectedAnchor: {x: -0.00000008968487, y: 0, z: -0.50155413}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -12012,6 +12012,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1792531628}
     m_Modifications:
+    - target: {fileID: 100012, guid: a051f9ee8d34e4038b0539c5ab5f6e43, type: 3}
+      propertyPath: m_Name
+      value: Mech Bot Generic
+      objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: a051f9ee8d34e4038b0539c5ab5f6e43, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12060,10 +12064,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e2e7e3f09e2bc4e03b5ebac93381905b, type: 2}
-    - target: {fileID: 100012, guid: a051f9ee8d34e4038b0539c5ab5f6e43, type: 3}
-      propertyPath: m_Name
-      value: Mech Bot Generic
-      objectReference: {fileID: 0}
     - target: {fileID: 2300014, guid: a051f9ee8d34e4038b0539c5ab5f6e43, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

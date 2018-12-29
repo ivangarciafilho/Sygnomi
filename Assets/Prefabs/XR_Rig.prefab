@@ -494,13 +494,13 @@ MonoBehaviour:
   _bloomWeight4: 0.35
   _bloomWeight5: 0.1
   _bloomBlur: 1
-  _bloomDepthAtten: 0.75
+  _bloomDepthAtten: 0.85
   _bloomLayerZBias: 0
   _anamorphicFlares: 1
-  _anamorphicFlaresIntensity: 1
+  _anamorphicFlaresIntensity: 0.15
   _anamorphicFlaresAntiflicker: 1
   _anamorphicFlaresUltra: 1
-  _anamorphicFlaresThreshold: 1.3
+  _anamorphicFlaresThreshold: 1.5
   _anamorphicFlaresSpread: 1
   _anamorphicFlaresVertical: 0
   _anamorphicFlaresTint: {r: 0.5, g: 0.5, b: 1, a: 0}

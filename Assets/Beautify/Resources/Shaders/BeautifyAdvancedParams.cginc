@@ -21,7 +21,7 @@
 //#define BEAUTIFY_SUN_FLARES_OCCLUSION_DEPTH
 
 // Uncomment this line to use an alternate ACES tonemap operator
-#define BEAUTIFY_ACES_FITTED
+//#define BEAUTIFY_ACES_FITTED
 
 // Uncomment this line to use a color-based edge detection algorithm instead of a depth based method. Useful for 2D projects.
 //#define BEAUTIFY_OUTLINE_SOBEL

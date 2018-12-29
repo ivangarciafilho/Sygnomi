@@ -1,4 +1,22 @@
 ==================
+Version 3.26.2 December 19, 2018
+    Add Drag & Drop target box when adding objects to be combined.
+    Fix bug when using TextureBaker, multiple materials and trying to split the result into multiple
+    atlases which did not work.
+    Fix issue when using Texture Packer, Mesh Baker Fast on Metal platform where atlases would be upside down.
+    Fix issue where UpdateGameObjects would not work correctly if the material was switched on the source game object.
+    Move Editor scripts into a folder that is not a subfolder of the Scripts folder. This was necessary
+    so that assembly definition files and the Unity test runner will work in Unity 2018.
+    Split the MB3_MeshCombinerSimple class into multiple files because it was very large.
+    Added an example scene and script for switching a material on a source object and updating the combined mesh.
+
+==================
+Version 3.26.1 October 30, 2018
+    Upgraded to version 5.5.1 and regenerated all textures.
+    This was necessary to fix issues where Unity 2018.3 could
+    not read assets generated with older versions of Unity.
+
+==================
 Version 3.26 July 17, 2018
 	Fixe for NRE when using MeshBaker packer and null textures
 	Fix bug for missing build target Tiezen in 2018.2 

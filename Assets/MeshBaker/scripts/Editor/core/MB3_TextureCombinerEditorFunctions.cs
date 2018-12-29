@@ -590,12 +590,8 @@ namespace DigitalOpus.MB.Core{
 		
 		public bool CheckPrefabTypes(MB_ObjsToCombineTypes objToCombineType, List<GameObject> objsToMesh){
 			for (int i = 0; i < objsToMesh.Count; i++){
-				UnityEditor.PrefabType pt = UnityEditor.PrefabUtility.GetPrefabType(objsToMesh[i]);
-				if (pt == UnityEditor.PrefabType.None ||
-					pt == UnityEditor.PrefabType.PrefabInstance || 
-					pt == UnityEditor.PrefabType.ModelPrefabInstance || 
-					pt == UnityEditor.PrefabType.DisconnectedPrefabInstance ||
-					pt == UnityEditor.PrefabType.DisconnectedModelPrefabInstance){
+				MB_PrefabType pt = MBVersionEditor.GetPrefabType(objsToMesh[i]);
+				if (pt == MB_PrefabType.sceneInstance){
 					// these are scene objects
 					if (objToCombineType == MB_ObjsToCombineTypes.prefabOnly){
 						Debug.LogWarning("The list of objects to combine contains scene objects. You probably want prefabs. If using scene objects ensure position is zero, rotation is zero and scale is one. Translation, Rotation and Scale will be baked into the generated mesh." + objsToMesh[i] + " is a scene object");	
@@ -644,5 +640,83 @@ namespace DigitalOpus.MB.Core{
 					MonoBehaviour.DestroyImmediate(o,false);
 			}
 		}
-	}
+
+        public static object[] DropZone(string title, int w, int h)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GUILayout.Box(title, GUILayout.Width(w), GUILayout.Height(h));
+            Rect dropRect = GUILayoutUtility.GetLastRect();
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
+
+            EventType eventType = Event.current.type;
+            bool isAccepted = false;
+
+            if (eventType == EventType.DragUpdated || eventType == EventType.DragPerform)
+            {
+                if (dropRect.Contains(Event.current.mousePosition))
+                {
+                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+                if (eventType == EventType.DragPerform)
+                {
+                    DragAndDrop.AcceptDrag();
+                    isAccepted = true;
+                        //Debug.Log("Consuming drop event in inspector. " + Event.current.mousePosition + " rect" + dropRect);
+                Event.current.Use();
+                    }
+                }
+            }
+
+            return isAccepted ? DragAndDrop.objectReferences : null;
+        }
+
+        public static void AddDroppedObjects(object[] objs, MB3_MeshBakerRoot momm)
+        {
+            if (objs != null)
+            {
+                HashSet<Renderer> renderersToAdd = new HashSet<Renderer>();
+                for (int i = 0; i < objs.Length; i++)
+                {
+                    object obj = objs[i];
+                    if (obj is GameObject)
+                    {
+                        Renderer[] rs = ((GameObject)obj).GetComponentsInChildren<Renderer>();
+                        for (int j = 0; j < rs.Length; j++)
+                        {
+                            if (rs[j] is MeshRenderer || rs[j] is SkinnedMeshRenderer)
+                            {
+                                renderersToAdd.Add(rs[j]);
+                            }
+                        }
+                    }
+                }
+
+                int numAdded = 0;
+                List<GameObject> objsToCombine = momm.GetObjectsToCombine();
+                bool failedToAddAssets = false;
+                foreach (Renderer r in renderersToAdd)
+                {
+                    if (!objsToCombine.Contains(r.gameObject))
+                    {
+                        MB_PrefabType prefabType = MBVersionEditor.GetPrefabType(r.gameObject);
+                        if (prefabType == MB_PrefabType.modelPrefab || prefabType == MB_PrefabType.prefab)
+                        {
+                            failedToAddAssets = true;
+                        }
+                        else
+                        {
+                            objsToCombine.Add(r.gameObject);
+                            numAdded++;
+                        }
+                    }
+                }
+
+                if (failedToAddAssets){
+                    Debug.LogError("Did not add some object(s) because they are not scene objects");
+                }
+                Debug.Log("Added " + numAdded + " renderers");
+            }
+        }
+    }
 }

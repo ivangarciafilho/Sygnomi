@@ -790,7 +790,7 @@ namespace DigitalOpus.MB.Core
             }
         }
 
-        internal void DrawRectsToMergeGizmos(Color encC, Color innerC)
+        public void DrawRectsToMergeGizmos(Color encC, Color innerC)
         {
             DRect r = ts[0].GetEncapsulatingSamplingRect();
             r.Expand(.05f);

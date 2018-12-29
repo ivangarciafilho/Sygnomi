@@ -8,13 +8,21 @@ using System.Collections;
 
 namespace DigitalOpus.MB.Core{
 
-	public interface MBVersionEditorInterface{
+    public enum MB_PrefabType
+    {
+        modelPrefab,
+        prefab,
+        sceneInstance,
+    }
+
+    public interface MBVersionEditorInterface{
 		string GetPlatformString(); 
 		void RegisterUndo(UnityEngine.Object o, string s);
 		void SetInspectorLabelWidth(float width);
         void UpdateIfDirtyOrScript(SerializedObject so);
         UnityEngine.Object PrefabUtility_GetCorrespondingObjectFromSource(GameObject go);
         bool IsAutoPVRTC(TextureImporterFormat platformFormat, TextureImporterFormat platformDefaultFormat);
+        MB_PrefabType GetPrefabType(UnityEngine.Object go);
     }
 	
 	public class MBVersionEditor
@@ -62,6 +70,12 @@ namespace DigitalOpus.MB.Core{
         {
             if (_MBVersion == null) _MBVersion = _CreateMBVersionConcrete();
             return _MBVersion.IsAutoPVRTC(platformFormat, platformDefaultFormat);
+        }
+
+        public static MB_PrefabType GetPrefabType(UnityEngine.Object go)
+        {
+            if (_MBVersion == null) _MBVersion = _CreateMBVersionConcrete();
+            return _MBVersion.GetPrefabType(go);
         }
     }
 }

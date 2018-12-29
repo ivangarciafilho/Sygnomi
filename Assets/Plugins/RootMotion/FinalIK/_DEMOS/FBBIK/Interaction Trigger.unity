@@ -12240,6 +12240,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100010, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.11853027
@@ -12268,6 +12272,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: .49999994
       objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -12287,14 +12295,6 @@ PrefabInstance:
     - target: {fileID: 100008, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 400010, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 5bfa9baba3ddb4460990c4c924f97919, type: 3}

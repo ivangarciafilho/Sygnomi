@@ -520,6 +520,15 @@ public class MB3_TextureBaker : MB3_MeshBakerRoot
         HashSet<Material> allMatsInMapping = new HashSet<Material>();
         for (int i = 0; i < resultMaterials.Length; i++)
         {
+            for (int j = i+1; j < resultMaterials.Length; j++)
+            {
+                if (resultMaterials[i].combinedMaterial == resultMaterials[j].combinedMaterial)
+                {
+                    Debug.LogError(String.Format("Source To Combined Mapping: Submesh {0} and Submesh {1} use the same combined material. These should be different", i, j));
+                    return false;
+                }
+            }
+
             MB_MultiMaterial mm = resultMaterials[i];
             if (mm.combinedMaterial == null)
             {

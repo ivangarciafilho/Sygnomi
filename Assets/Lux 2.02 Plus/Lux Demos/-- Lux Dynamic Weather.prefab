@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScriptControlledWeather: 1
   TimeScale: 0.8
-  Temperature: -9
+  Temperature: 30
   Rainfall: 0.9
-  RainIntensity: 0
-  SnowIntensity: 0.9
+  RainIntensity: 0.9
+  SnowIntensity: 0
   WetnessInfluenceOnAlbedo: 0.85
   WetnessInfluenceOnSmoothness: 0.5
   AccumulationRateWetness: 0.35
@@ -58,12 +58,12 @@ MonoBehaviour:
   EvaporationRateCracks: 0.5
   EvaporationRatePuddles: 0.386
   AccumulationRateSnow: 0.1
-  AccumulatedWetness: 0
-  AccumulatedCracks: 0
-  AccumulatedPuddles: 0
-  AccumulatedWater: 0
-  AccumulatedSnow: 1
-  WaterToSnow: 1
+  AccumulatedWetness: 1
+  AccumulatedCracks: 1
+  AccumulatedPuddles: 1
+  AccumulatedWater: 1
+  AccumulatedSnow: 1e-45
+  WaterToSnow: 0
   WaterToSnowTimeScale: 1
   WaterToSnowCurve:
     serializedVersion: 2
@@ -98,7 +98,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  SnowMelt: 0
+  SnowMelt: 1
   SnowColor: {r: 0.65, g: 1, b: 1, a: 1}
   SnowSpecularColor: {r: 0.1, g: 0.1, b: 0.25, a: 1}
   SnowScatterColor: {r: 0.75, g: 1, b: 1, a: 1}

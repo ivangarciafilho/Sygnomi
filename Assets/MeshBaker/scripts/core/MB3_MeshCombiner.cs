@@ -285,7 +285,7 @@ namespace DigitalOpus.MB.Core{
         /// For efficiency update as few channels as possible.
         /// Apply must be called to apply the changes to the combined mesh
         /// </summary>		
-        public abstract void UpdateGameObjects(GameObject[] gos, bool recalcBounds = true,
+        public abstract bool UpdateGameObjects(GameObject[] gos, bool recalcBounds = true,
                                         bool updateVertices = true, bool updateNormals = true, bool updateTangents = true,
                                         bool updateUV = false, bool updateUV2 = false, bool updateUV3 = false, bool updateUV4 = false,
 										bool updateColors = false, bool updateSkinningInfo = false);		

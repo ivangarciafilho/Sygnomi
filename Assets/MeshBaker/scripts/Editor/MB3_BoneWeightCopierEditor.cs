@@ -152,8 +152,8 @@ public class MB3_BoneWeightCopierEditor : Editor {
                 Debug.LogError(string.Format("Skinned Mesh {0} does not have a mesh", targSkinnedMeshes[i]));
                 return;
             }
-            PrefabType pt = PrefabUtility.GetPrefabType(targSkinnedMeshes[i]);
-            if (pt == PrefabType.ModelPrefab)
+            MB_PrefabType pt = MBVersionEditor.GetPrefabType(targSkinnedMeshes[i].gameObject);
+            if (pt == MB_PrefabType.modelPrefab)
             {
                 Debug.LogError(string.Format("Target Mesh {0} is an imported model prefab. Can't modify these meshes because changes will be overwritten the next time the model is saved or reimported. Try instantiating the prefab and using skinned meshes from the scene instance.", i));
                 return;
@@ -181,8 +181,8 @@ public class MB3_BoneWeightCopierEditor : Editor {
 					Debug.LogError(string.Format("Target Mesh {0} does not have a mesh", i));
                 return;
             }
-            PrefabType pt = PrefabUtility.GetPrefabType(targetMeshes[i]);
-            if (pt == PrefabType.ModelPrefab) {
+            MB_PrefabType pt = MBVersionEditor.GetPrefabType(targetMeshes[i]);
+            if (pt == MB_PrefabType.modelPrefab) {
 						Debug.LogError(string.Format("Target Mesh {0} is an imported model prefab. Can't modify these meshes because changes will be overwritten the next time the model is saved or reimported. Try instantiating the prefab and using skinned meshes from the scene instance.", i));
                 return;
             }

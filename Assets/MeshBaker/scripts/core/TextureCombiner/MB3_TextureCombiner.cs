@@ -271,15 +271,15 @@ namespace DigitalOpus.MB.Core
 	    *  <param name="progressInfo">A delegate function that will be called to report progress.</param>
 	    *  <param name="textureEditorMethods">If called from the editor should be an instance of MB2_EditorMethods. If called at runtime should be null.</param>
 	    *  <remarks>Combines meshes and generates texture atlases</remarks> */
-        public bool CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods = null, List<AtlasPackingResult> packingResults = null, bool onlyPackRects = false)
+        public bool CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods = null, List<AtlasPackingResult> packingResults = null, bool onlyPackRects = false, bool splitAtlasWhenPackingIfTooBig = false)
         {
             CombineTexturesIntoAtlasesCoroutineResult result = new CombineTexturesIntoAtlasesCoroutineResult();
-            RunCorutineWithoutPause(_CombineTexturesIntoAtlases(progressInfo, result, resultAtlasesAndRects, resultMaterial, objsToMesh, allowedMaterialsFilter, textureEditorMethods, packingResults, onlyPackRects), 0);
+            RunCorutineWithoutPause(_CombineTexturesIntoAtlases(progressInfo, result, resultAtlasesAndRects, resultMaterial, objsToMesh, allowedMaterialsFilter, textureEditorMethods, packingResults, onlyPackRects, splitAtlasWhenPackingIfTooBig), 0);
             return result.success;
         }
 
         //float _maxTimePerFrameForCoroutine;
-        public IEnumerator CombineTexturesIntoAtlasesCoroutine(ProgressUpdateDelegate progressInfo, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods = null, CombineTexturesIntoAtlasesCoroutineResult coroutineResult = null, float maxTimePerFrame = .01f, List<AtlasPackingResult> packingResults = null, bool onlyPackRects = false)
+        public IEnumerator CombineTexturesIntoAtlasesCoroutine(ProgressUpdateDelegate progressInfo, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods = null, CombineTexturesIntoAtlasesCoroutineResult coroutineResult = null, float maxTimePerFrame = .01f, List<AtlasPackingResult> packingResults = null, bool onlyPackRects = false, bool splitAtlasWhenPackingIfTooBig = false)
         {
             if (!_RunCorutineWithoutPauseIsRunning && (MBVersion.GetMajorVersion() < 5 || (MBVersion.GetMajorVersion() == 5 && MBVersion.GetMinorVersion() < 3)))
             {
@@ -295,12 +295,12 @@ namespace DigitalOpus.MB.Core
                 yield break;
             }
             //_maxTimePerFrameForCoroutine = maxTimePerFrame;
-            yield return _CombineTexturesIntoAtlases(progressInfo, coroutineResult, resultAtlasesAndRects, resultMaterial, objsToMesh, allowedMaterialsFilter, textureEditorMethods, packingResults, onlyPackRects);
+            yield return _CombineTexturesIntoAtlases(progressInfo, coroutineResult, resultAtlasesAndRects, resultMaterial, objsToMesh, allowedMaterialsFilter, textureEditorMethods, packingResults, onlyPackRects, splitAtlasWhenPackingIfTooBig);
             coroutineResult.isFinished = true;
             yield break;
         }
 
-        IEnumerator _CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, CombineTexturesIntoAtlasesCoroutineResult result, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods, List<AtlasPackingResult> atlasPackingResult, bool onlyPackRects)
+        IEnumerator _CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, CombineTexturesIntoAtlasesCoroutineResult result, MB_AtlasesAndRects resultAtlasesAndRects, Material resultMaterial, List<GameObject> objsToMesh, List<Material> allowedMaterialsFilter, MB2_EditorMethodsInterface textureEditorMethods, List<AtlasPackingResult> atlasPackingResult, bool onlyPackRects, bool splitAtlasWhenPackingIfTooBig)
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
@@ -375,11 +375,11 @@ namespace DigitalOpus.MB.Core
 
                 if (onlyPackRects)
                 {
-                    yield return __RunTexturePacker(result, data, textureEditorMethods, atlasPackingResult);
+                    yield return __RunTexturePackerOnly(result, data, splitAtlasWhenPackingIfTooBig, textureEditorMethods, atlasPackingResult);
                 }
                 else
                 {
-                    yield return __CombineTexturesIntoAtlases(progressInfo, result, resultAtlasesAndRects, data, textureEditorMethods);
+                    yield return __CombineTexturesIntoAtlases(progressInfo, result, resultAtlasesAndRects, data, splitAtlasWhenPackingIfTooBig, textureEditorMethods);
                 }
                 /*
 			} catch (MissingReferenceException mrex){
@@ -450,7 +450,7 @@ namespace DigitalOpus.MB.Core
         //allowedMaterialsFilter is a list of materials. Objects without any of these materials will be ignored.
         //						 this is used by the multiple materials filter
         //textureEditorMethods encapsulates editor only functionality such as saving assets and tracking texture assets whos format was changed. Is null if using at runtime. 
-        IEnumerator __CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, CombineTexturesIntoAtlasesCoroutineResult result, MB_AtlasesAndRects resultAtlasesAndRects, MB3_TextureCombinerPipeline.TexturePipelineData data, MB2_EditorMethodsInterface textureEditorMethods)
+        IEnumerator __CombineTexturesIntoAtlases(ProgressUpdateDelegate progressInfo, CombineTexturesIntoAtlasesCoroutineResult result, MB_AtlasesAndRects resultAtlasesAndRects, MB3_TextureCombinerPipeline.TexturePipelineData data, bool splitAtlasWhenPackingIfTooBig, MB2_EditorMethodsInterface textureEditorMethods)
         {
             if (LOG_LEVEL >= MB2_LogLevel.debug) Debug.Log("__CombineTexturesIntoAtlases texture properties in shader:" + data.texPropertyNames.Count + " objsToMesh:" + data.allObjsToMesh.Count + " _fixOutOfBoundsUVs:" + data._fixOutOfBoundsUVs);
 
@@ -507,11 +507,11 @@ namespace DigitalOpus.MB.Core
                 yield break;
             }
 
-            AtlasPackingResult[] uvRects = texturePaker.CalculateAtlasRectangles(data, false, LOG_LEVEL);
+            AtlasPackingResult[] uvRects = texturePaker.CalculateAtlasRectangles(data, splitAtlasWhenPackingIfTooBig, LOG_LEVEL);
             yield return MB3_TextureCombinerPipeline.__Step3_BuildAndSaveAtlasesAndStoreResults(result, progressInfo, data, this, texturePaker, uvRects[0], textureEditorMethods, resultAtlasesAndRects, report, LOG_LEVEL);
         }
 
-        IEnumerator __RunTexturePacker(CombineTexturesIntoAtlasesCoroutineResult result, MB3_TextureCombinerPipeline.TexturePipelineData data, MB2_EditorMethodsInterface textureEditorMethods, List<AtlasPackingResult> packingResult)
+        IEnumerator __RunTexturePackerOnly(CombineTexturesIntoAtlasesCoroutineResult result, MB3_TextureCombinerPipeline.TexturePipelineData data, bool splitAtlasWhenPackingIfTooBig, MB2_EditorMethodsInterface textureEditorMethods, List<AtlasPackingResult> packingResult)
         {
             if (LOG_LEVEL >= MB2_LogLevel.debug) Debug.Log("__RunTexturePacker texture properties in shader:" + data.texPropertyNames.Count + " objsToMesh:" + data.allObjsToMesh.Count + " _fixOutOfBoundsUVs:" + data._fixOutOfBoundsUVs);
             List<GameObject> usedObjsToMesh = new List<GameObject>();
@@ -530,7 +530,7 @@ namespace DigitalOpus.MB.Core
 
             MB_ITextureCombinerPacker texturePaker = MB3_TextureCombinerPipeline.CreatePacker(data.OnlyOneTextureInAtlasReuseTextures(), data._packingAlgorithm);
             //    run the texture packer only
-            AtlasPackingResult[] aprs = MB3_TextureCombinerPipeline.__Step3_RunTexturePacker(data, texturePaker, LOG_LEVEL);
+            AtlasPackingResult[] aprs = MB3_TextureCombinerPipeline.RunTexturePackerOnly(data, splitAtlasWhenPackingIfTooBig, texturePaker, LOG_LEVEL);
             for (int i = 0; i < aprs.Length; i++)
             {
                 packingResult.Add(aprs[i]);

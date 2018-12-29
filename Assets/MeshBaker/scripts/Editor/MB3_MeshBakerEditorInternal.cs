@@ -163,8 +163,12 @@ namespace DigitalOpus.MB.Core{
 				if (GUILayout.Button(gc_openToolsWindowLabelContent)){
 					MB3_MeshBakerEditorWindowInterface mmWin = (MB3_MeshBakerEditorWindowInterface) EditorWindow.GetWindow(editorWindowType);
 					mmWin.target = (MB3_MeshBakerRoot) target;
-				}	
-				EditorGUILayout.PropertyField(objsToMesh,gc_objectsToCombineGUIContent, true);
+				}
+
+                object[] objs = MB3_EditorMethods.DropZone("Drag & Drop Renderers Or Parents Here To Add Objects To Be Combined", 300, 50);
+                MB3_EditorMethods.AddDroppedObjects(objs, momm);
+
+                EditorGUILayout.PropertyField(objsToMesh,gc_objectsToCombineGUIContent, true);
                 EditorGUILayout.Separator();
                 EditorGUILayout.BeginHorizontal();
                 if (GUILayout.Button("Select Objects In Scene"))

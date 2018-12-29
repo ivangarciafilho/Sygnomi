@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using DigitalOpus.MB.Core;
 using System.Text.RegularExpressions;
+using DigitalOpus.MB.Core;
 
 [CustomEditor(typeof(MB3_BatchPrefabBaker))]
 public class MB3_BatchPrefabBakerEditor : Editor
@@ -254,14 +255,14 @@ public class MB3_BatchPrefabBakerEditor : Editor
                     return;
                 }
             }
-            if (PrefabUtility.GetPrefabType(pb.prefabRows[i].sourcePrefab) != PrefabType.ModelPrefab &&
-                PrefabUtility.GetPrefabType(pb.prefabRows[i].sourcePrefab) != PrefabType.Prefab)
+            if (MBVersionEditor.GetPrefabType(pb.prefabRows[i].sourcePrefab) != MB_PrefabType.modelPrefab &&
+                MBVersionEditor.GetPrefabType(pb.prefabRows[i].sourcePrefab) != MB_PrefabType.prefab)
             {
-                Debug.LogError("Row " + i + " source prefab is not a prefab asset");
+                Debug.LogError("Row " + i + " source prefab is not a prefab asset ");
                 return;
             }
-            if (PrefabUtility.GetPrefabType(pb.prefabRows[i].resultPrefab) != PrefabType.ModelPrefab &&
-                PrefabUtility.GetPrefabType(pb.prefabRows[i].resultPrefab) != PrefabType.Prefab)
+            if (MBVersionEditor.GetPrefabType(pb.prefabRows[i].resultPrefab) != MB_PrefabType.modelPrefab &&
+                MBVersionEditor.GetPrefabType(pb.prefabRows[i].resultPrefab) != MB_PrefabType.prefab)
             {
                 Debug.LogError("Row " + i + " result prefab is not a prefab asset");
                 return;

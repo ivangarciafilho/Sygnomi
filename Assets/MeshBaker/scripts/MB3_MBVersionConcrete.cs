@@ -9,7 +9,7 @@ namespace DigitalOpus.MB.Core{
 
 	public class MBVersionConcrete:MBVersionInterface{
 		public string version(){
-			return "3.26.0";	 
+			return "3.26.2";	 
 		}
 		
 		public int GetMajorVersion(){

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-
+using DigitalOpus.MB.Core;
 
 [CustomEditor(typeof(MB3_DisableHiddenAnimations))]
 public class MB3_DisableHiddenAnimationsEditor : Editor {

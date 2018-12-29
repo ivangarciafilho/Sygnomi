@@ -61,7 +61,7 @@ namespace DigitalOpus.MB.Core
                 paddings.Add(padding);
             }
 
-            return tp.GetRects(imageSizes, paddings, data._maxAtlasWidth, data._maxAtlasHeight, false);
+            return tp.GetRects(imageSizes, paddings, data._maxAtlasWidth, data._maxAtlasHeight, doMultiAtlas);
         }
 
         public static void MakeProceduralTexturesReadable(ProgressUpdateDelegate progressInfo,

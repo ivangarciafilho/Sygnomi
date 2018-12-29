@@ -267,7 +267,7 @@ namespace DigitalOpus.MB.Core
             }
         }
 
-        public override void UpdateGameObjects(GameObject[] gos, bool recalcBounds = true,
+        public override bool UpdateGameObjects(GameObject[] gos, bool recalcBounds = true,
                                              bool updateVertices = true, bool updateNormals = true, bool updateTangents = true,
                                             bool updateUV = false, bool updateUV2 = false, bool updateUV3 = false, bool updateUV4 = false,
                                             bool updateColors = false, bool updateSkinningInfo = false)
@@ -275,7 +275,7 @@ namespace DigitalOpus.MB.Core
             if (gos == null)
             {
                 Debug.LogError("list of game objects cannot be null");
-                return;
+                return false;
             }
 
             //build gos lists
@@ -298,15 +298,18 @@ namespace DigitalOpus.MB.Core
                 }
             }
 
+            bool success = true;
             for (int i = 0; i < meshCombiners.Count; i++)
             {
                 if (meshCombiners[i].gosToUpdate.Count > 0)
                 {
                     meshCombiners[i].isDirty = true;
                     GameObject[] gosToUpdate = meshCombiners[i].gosToUpdate.ToArray();
-                    meshCombiners[i].combinedMesh.UpdateGameObjects(gosToUpdate, recalcBounds, updateVertices, updateNormals, updateTangents, updateUV, updateUV2, updateUV3, updateUV4, updateColors, updateSkinningInfo);
+                    success = success && meshCombiners[i].combinedMesh.UpdateGameObjects(gosToUpdate, recalcBounds, updateVertices, updateNormals, updateTangents, updateUV, updateUV2, updateUV3, updateUV4, updateColors, updateSkinningInfo);
                 }
             }
+
+            return success;
         }
 
         public override bool AddDeleteGameObjects(GameObject[] gos, GameObject[] deleteGOs, bool disableRendererInSource = true)

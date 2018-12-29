@@ -82,7 +82,8 @@ public class MB_TextureCombinerRenderTexture{
 			//assett rs must be same length as textureSets;
 			System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 			sw.Start ();
-			for (int i = 0; i < rs.Length; i++){
+            bool yIsFlipped = YisFlipped();
+            for (int i = 0; i < rs.Length; i++){
 				MeshBakerMaterialTexture texInfo = textureSets[i].ts[indexOfTexSetToRender];
                 Texture2D tx = texInfo.GetTexture2D();
                 if (LOG_LEVEL >= MB2_LogLevel.trace && tx != null) {
@@ -90,7 +91,7 @@ public class MB_TextureCombinerRenderTexture{
                     //_printTexture(tx);
                 }
                 
-                CopyScaledAndTiledToAtlas(textureSets[i], texInfo, textureSets[i].obUVoffset, textureSets[i].obUVscale, rs[i],_texPropertyName,_resultMaterialTextureBlender);
+                CopyScaledAndTiledToAtlas(textureSets[i], texInfo, textureSets[i].obUVoffset, textureSets[i].obUVscale, rs[i],_texPropertyName,_resultMaterialTextureBlender, yIsFlipped);
 			}
 			sw.Stop();
 			sw.Start();
@@ -154,16 +155,29 @@ public class MB_TextureCombinerRenderTexture{
         return cc;
     }
 
-    private bool IsOpenGL(){
-		var graphicsDeviceVersion = SystemInfo.graphicsDeviceVersion;
-		return graphicsDeviceVersion.StartsWith("OpenGL");
+    public bool YisFlipped() {
+        string graphicsDeviceVersion = SystemInfo.graphicsDeviceVersion.ToLower();
+        bool flipY;
+        if (graphicsDeviceVersion.Contains("metal"))
+        {
+            flipY = false;
+        } else {
+            // "opengl es, direct3d"
+            flipY = true;
+        }
+
+        if (LOG_LEVEL == MB2_LogLevel.debug) Debug.Log("Graphics device version is: " + graphicsDeviceVersion + " flipY:" + flipY);
+        return flipY;
 	}
 	
-	private void CopyScaledAndTiledToAtlas(MB_TexSet texSet, MeshBakerMaterialTexture source, Vector2 obUVoffset, Vector2 obUVscale, Rect rec, ShaderTextureProperty texturePropertyName, MB3_TextureCombinerNonTextureProperties resultMatTexBlender){			
+	private void CopyScaledAndTiledToAtlas(MB_TexSet texSet, MeshBakerMaterialTexture source, Vector2 obUVoffset, Vector2 obUVscale, Rect rec, ShaderTextureProperty texturePropertyName, MB3_TextureCombinerNonTextureProperties resultMatTexBlender, bool yIsFlipped){			
 		Rect r = rec;
         myCamera.backgroundColor = resultMatTexBlender.GetColorForTemporaryTexture(texSet.matsAndGOs.mats[0].mat, texturePropertyName);
-		r.y = 1f - (r.y + r.height); // DrawTexture uses topLeft 0,0, Texture2D uses bottomLeft 0,0 
-		r.x *= _destinationTexture.width;
+        if (yIsFlipped)
+        {
+            r.y = 1f - (r.y + r.height); // DrawTexture uses topLeft 0,0, Texture2D uses bottomLeft 0,0 
+        }
+        r.x *= _destinationTexture.width;
 		r.y *= _destinationTexture.height;
 		r.width *= _destinationTexture.width;
 		r.height *= _destinationTexture.height;

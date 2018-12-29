@@ -407,7 +407,7 @@ namespace DigitalOpus.MB.Core
                                         //TRIED to copy texture using tex2.SetPixels(tex1.GetPixels()) but bug in 3.5 means DTX1 and 5 compressed textures come out skewe
                                         if (Application.isPlaying && data._packingAlgorithm != MB2_PackingAlgorithmEnum.MeshBakerTexturePacker_Fast)
                                         {
-                                            Debug.LogError("Object " + obj.name + " in the list of objects to mesh uses Texture " + tx.name + " uses format " + f + " that is not in: ARGB32, RGBA32, BGRA32, RGB24, Alpha8 or DXT. These textures cannot be resized at runtime. Try changing texture format. If format says 'compressed' try changing it to 'truecolor'");
+                                            Debug.LogWarning("Object " + obj.name + " in the list of objects to mesh uses Texture " + tx.name + " uses format " + f + " that is not in: ARGB32, RGBA32, BGRA32, RGB24, Alpha8 or DXT. These textures cannot be resized at runtime. Try changing texture format. If format says 'compressed' try changing it to 'truecolor'");
                                             result.success = false;
                                             yield break;
                                         }
@@ -657,9 +657,9 @@ namespace DigitalOpus.MB.Core
             yield break;
         }
 
-        internal static AtlasPackingResult[] __Step3_RunTexturePacker(TexturePipelineData data, MB_ITextureCombinerPacker texturePacker, MB2_LogLevel LOG_LEVEL)
+        internal static AtlasPackingResult[] RunTexturePackerOnly(TexturePipelineData data, bool doSplitIntoMultiAtlasIfTooBig, MB_ITextureCombinerPacker texturePacker, MB2_LogLevel LOG_LEVEL)
         {
-            AtlasPackingResult[] apr = texturePacker.CalculateAtlasRectangles(data, true, LOG_LEVEL); // __RuntTexturePackerOnly(data, texturePacker, LOG_LEVEL);
+            AtlasPackingResult[] apr = texturePacker.CalculateAtlasRectangles(data, doSplitIntoMultiAtlasIfTooBig, LOG_LEVEL); // __RuntTexturePackerOnly(data, texturePacker, LOG_LEVEL);
             //copy materials PackingResults
             for (int i = 0; i < apr.Length; i++)
             {
