@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 1459471513, guid: 46235810a04f84c66a1044125d2b8135, type: 3}
+        m_Texture: {fileID: 2800000, guid: dc19971b1d02e3046bc4ba77b60ba864, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 76d7a7603c1aa4940ba301a1a79c8f3e, type: 3}
+        m_Texture: {fileID: 2800000, guid: f2ec092fea387e14b8343b38a3958ba8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -75,6 +75,7 @@ Material:
     - _EnableIndependentPuddleMaskTiling: 0
     - _EnablePOM: 0
     - _Glossiness: 0.5
+    - _HelpSnowMapping: 0
     - _LinearSteps: 20
     - _Lux_FlowInterval: 1
     - _Lux_FlowNormalStrength: 1
@@ -88,6 +89,7 @@ Material:
     - _ParallaxTiling: 1
     - _PuddleMaskTiling: 1
     - _SnowDetailStrength: 0.5
+    - _SnowMapping: 0
     - _SnowNormalStrength: 1
     - _SnowOpacity: 0.5
     - _SnowSlopeDamp: 1
@@ -105,6 +107,7 @@ Material:
     - _SnowDetailTiling: {r: 4, g: 4, b: 0, a: 0}
     - _SnowMaskTiling: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _SnowTiling: {r: 2, g: 2, b: 0, a: 0}
+    - _UVRatio: {r: 1, g: 1, b: 1, a: 0}
     - _WaterAccumulationCracksPuddles: {r: 0, g: 1, b: 0, a: 1}
     - _WaterAccumulationCracksPuddles2: {r: 0, g: 1, b: 0, a: 1}
     - _WaterColor: {r: 0, g: 0, b: 0, a: 0}

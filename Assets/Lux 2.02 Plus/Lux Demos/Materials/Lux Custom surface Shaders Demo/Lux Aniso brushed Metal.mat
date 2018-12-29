@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Lux Aniso brushed Metal
   m_Shader: {fileID: 4800000, guid: dbe0fca8598554ac79809e1e4932aec0, type: 3}
-  m_ShaderKeywords: _SPECGLOSSMAP
+  m_ShaderKeywords: LUX_TRANSLUCENTLIGHTING _SPECGLOSSMAP
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,11 +64,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AnimateDither: 1
     - _BumpScale: 1
     - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DiffuseScatteringBias: 0
     - _DiffuseScatteringContraction: 10
+    - _DitherDistance: 20
+    - _DitherRange: 5
+    - _DitherSpread: 0.01
     - _DstBlend: 0
     - _EnableBackfaceSmoothnessExtinction: 0
     - _EnableMetallGlossMap: 0
@@ -87,6 +91,7 @@ Material:
     - _TangentDirStrength: 1
     - _Translucency: 0
     - _UVSec: 0
+    - _UseDither: 1
     - _VertexOcclusionStrength: 0.5
     - _ZWrite: 1
     m_Colors:
